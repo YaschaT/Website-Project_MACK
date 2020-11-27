@@ -1,0 +1,625 @@
+@import "reset_plus.scss";
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+
+
+/* Why not try a few variables :-) */
+$color-main: #333; // black
+$color-light: #999; // grey
+$color-accent: #ea4c89; // pink
+$color-darken: #252525; // lightgrey
+
+//SASS//
+@mixin title-type {
+margin-bottom: 2rem;
+font-size: 9rem;
+line-height: 1.5;
+color: white;
+font-weight: lighter;
+}
+
+@mixin subtitle-style {
+margin: 0 0 20px 0;
+font-family: $font-serif;
+font-size: 20px;
+font-weight: bold;
+text-transform: uppercase;
+}
+
+//Algemeen//
+header {
+margin: 2rem;
+}
+
+html {
+font-size: 62,5%;
+font-family: helvetica;
+background-color: $color-darken;
+background: lighten($color-darken,1%);
+}
+
+::selection {
+background: white;
+color: black;
+}
+
+
+header h1  {
+@include title-type;
+}
+
+
+body {
+margin-top: 2rem;
+font-family: helvetica;
+font-size: 62,5%;
+max-width: 600px;
+margin-left: auto;
+margin-right: auto;
+box-sizing: border-box;
+}
+
+//NAVIGATIE//
+
+
+nav a {
+color: white;
+padding: 1.2rem 2rem;
+text-decoration: none;
+transition: 0.9s;
+font-weight: lighter;
+}
+
+nav ul {
+display: flex;
+flex-direction: column;
+}
+
+nav a:hover {
+color: #222d;
+background-color: white;
+margin-left: 2rem;
+transition: 0.9s;
+font-size: 1.2rem;
+}
+
+
+//ZOEKBAR//
+html, body {
+width: 100%;
+height: 100%;
+}
+
+.container {
+position: absolute;
+margin: auto;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+width: 300px;
+height: 100px;
+
+.search {
+position: absolute;
+margin: auto;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+width: 70px;
+height: 70px;
+background:#115dd8;
+border-radius: 50%;
+transition: all 1s;
+z-index: 4;
+box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+// box-shadow: 0 0 25px 0 crimson;
+
+&:hover {
+cursor:crosshair;
+}
+
+&::before {
+content: "";
+position: absolute;
+margin: auto;
+top: 22px;
+right: 0;
+bottom: 0;
+left: 22px;
+width: 12px;
+height: 2px;
+background: white;
+transform: rotate(45deg);
+transition: all .5s;
+}
+
+&::after {
+content: "";
+position: absolute;
+margin: auto;
+top: -5px;
+right: 0;
+bottom: 0;
+left: -5px;
+width: 25px;
+height: 25px;
+border-radius: 50%;
+border: 2px solid white;
+transition: all .5s;
+}
+}
+
+input {
+position: absolute;
+margin: auto;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+width: 50px;
+height: 50px;
+outline: none;
+border: none;
+background: white;
+color: white;
+text-shadow: 0 0 10px black;
+padding: 0 80px 0 20px;
+border-radius: 30px;
+box-shadow: 0 0 25px 0 black,
+0 20px 25px 0 rgba(0, 0, 0, 0.2);
+transition: all 1s;
+opacity: 0;
+z-index: 5;
+font-weight: bolder;
+letter-spacing: 0.1em;
+
+&:hover {
+
+cursor: pointer;
+}
+&:focus {
+width: 300px;
+opacity: 1;
+cursor: text;
+}
+&:focus ~ .search {
+right: -250px;
+background: #115dd8;
+z-index: 6;
+&::before {
+top: 0;
+left: 0;
+width: 25px;
+}
+
+&::after {
+top: 0;
+left: 0;
+width: 25px;
+height: 2px;
+border: none;
+background: white;
+border-radius: 0%;
+transform: rotate(-45deg);
+}
+
+
+}
+&::placeholder {
+color: black;
+font-weight: lighter;
+opacity: 0.7;
+}
+}
+}
+
+
+//BLOKKEN TEKST/INFO_DEEL2//
+
+//Titel_Deel1//
+.text h2 {
+font-size: 1.2rem;
+color: white;
+border-radius: 0rem 1rem 0rem 1rem;
+background-color: #115dd8;
+padding: 1rem;
+font-weight: bolder;
+margin-bottom: 2rem;
+}
+
+.text h3 {
+font-size: 1.3rem;
+color: white;
+font-weight: bolder;
+text-align: center;
+}
+
+
+.grid p {
+color: white;
+margin: 2rem;
+line-height: 2rem;
+transition: 1.2s;
+}
+
+
+.grid .special {
+color: #115dd8;
+margin: 2rem;
+line-height: 2rem;
+transition: 1.2s;
+font-size: 1.2rem;
+}
+
+
+.introspecial {
+color: #115dd8;
+margin: 2rem;
+line-height: 2rem;
+transition: 1.2s;
+font-size: 1.2rem;
+font-weight: bolder;
+}
+
+
+input {
+margin: 2rem;
+cursor: pointer;
+border: 1px solid #115dd8;
+padding: 14px 30px;
+color: black;
+background: white;
+font-family: "Open Sans", sans-serif;
+font-size: 0.9rem;
+transition: 1.2s;
+}
+
+
+//BLOKKEN TEKST/INFO_DEEL2//
+
+//Afbeelding//
+img {
+width: 100%;
+padding: 1.2rem;
+margin-top: 10rem;
+background-repeat: no-repeat;
+}
+
+
+//Artiest//
+h3 {
+color: white;
+font-size: 2.3rem;
+padding: 2rem;
+border-bottom: 1px solid white;
+}
+
+//Afbeelding  + Hover//
+.grid1 img,.grid2 img,.grid3 img,.grid4 img,.grid5 img,.grid6 img {
+width: 100%;
+transition: 0.8s;
+}
+
+.grid1 img:hover,.grid2 img:hover,.grid3 img:hover,.grid4 img:hover,.grid5 img:hover,.grid6 img:hover {
+background-color: #115dd8;;
+padding: 1.2rem;
+transition: 0.8s;
+}
+
+//Titel//
+.extratekst {
+font-weight: lighter;
+font-style: italic;
+margin: 2rem;
+line-height: 2rem;
+transition: 1.2s;
+}
+
+//Blok Tekst//
+.text {
+color: white;
+font-weight: bolder;
+line-height: 2;
+margin: 2rem;
+padding: 1rem;
+font-size: 1.2rem;
+}
+
+
+//Button//
+.action{
+button{
+margin: 2rem;
+cursor: pointer;
+border: 1px solid #115dd8;
+padding: 14px 30px;
+border-radius: 100px;
+color: #fff;
+background: #115dd8;
+font-family: "Open Sans", sans-serif;
+font-size: 1.2em;
+transition: 1.2s;  &:hover{
+background: #fff;
+color: #115dd8;
+}
+}
+}
+
+.leesmeer {
+font-weight: lighter;
+font-size: 0.8rem;
+margin-top: 20rem;
+display: flex;
+justify-content: center;
+}
+
+
+//Footer//
+
+footer {
+width:100%;
+height: 60rem;
+background-color: #115dd8;
+margin-top: 10rem;
+}
+
+footer a {
+color: white;
+font-weight: lighter;
+display: flex;
+flex-direction: column;
+text-align: center;
+line-height: 2;
+font-size: 1.5rem;
+text-decoration: none;
+transition: 1.2s;
+padding: 2rem;
+}
+
+footer a:hover {
+background: #fff;
+color: #115dd8;
+transition: 2.3s;
+}
+
+
+
+
+//Social Media iconen//
+.fa {
+padding: 2rem;
+width:50px;
+text-align: center;
+text-decoration: none;
+margin: 1rem 1.2rem;
+margin-left: 4.45rem;
+border-radius: 50%;
+}
+
+.fa-facebook {
+background: #3B5998;
+color: white;
+}
+
+.fa-twitter {
+background: #55ACEE;
+color: white;
+}
+
+.fa-google {
+background: #dd4b39;
+color: white;
+}
+
+.fa-linkedin {
+background: #007bb5;
+color: white;
+}
+
+
+footer p {
+color: white;
+font-weight: bolder;
+letter-spacing: 0.5rem;
+display: flex;
+flex-direction: column;
+text-align: center;
+line-height: 2;
+font-size: 1.3rem;
+text-decoration: none;
+transition: 1.2s;
+padding: 2rem;
+}
+
+
+
+
+//Contactform_Contact.html//
+#contactForm {
+margin-top: 15rem;
+}
+
+#contactForm input, textarea {
+letter-spacing: 2px;
+font: 200 1em/1.1em 'Helvetica Neue', sans-serif;
+background-color:  #115dd8;
+outline: none; border: none;
+display:block;
+margin: 0 auto;
+padding: 1em;
+width: 90%;
+}
+
+#contactForm textarea {
+height: 15rem;
+}
+
+#contactForm *:focus {
+background-color: white;
+}
+
+#contactForm *:hover {
+background-color: white;
+}
+
+::-webkit-input-placeholder {
+color: white;
+}
+
+:-moz-placeholder {
+color: white;
+}
+
+::-moz-placeholder {
+color: white;
+}
+
+:-ms-input-placeholder {
+color: white;
+}
+
+
+
+
+//GRID - MOBILE - IPAD - PC //
+
+@supports (display: grid) {
+body{
+max-width: 1680px;
+}
+
+
+
+@media (min-width: 800px) {
+
+header h1 {
+text-align: center;
+font-size: 4.5rem;
+}
+
+nav ul {
+display: flex;
+flex-direction: row;
+font-size: 1.2rem;
+justify-content: center;
+border-bottom: 0.2px solid white;
+}
+
+
+.container {
+  margin-top: 15rem;
+}
+
+.grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+}
+
+
+.grid1 {
+grid-column: 1;
+}
+
+.grid2 {
+grid-column: 2;
+}
+
+.grid3 {
+grid-column: 1/3;
+}
+
+
+.grid6 {
+grid-column: 1/3;
+}
+
+.social {
+display: flex;
+justify-content: center;
+}
+
+footer ul{
+padding:6rem;
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+
+
+
+@media (min-width: 1200px) {
+
+
+
+
+  header h1 {
+  text-align: left;
+  }
+
+  nav ul {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+  justify-content: space-around;
+  }
+
+
+
+
+
+
+.grid {
+display: grid;
+grid-template-columns: repeat(3,1fr);
+}
+
+
+.grid1 {
+grid-column: 1;
+}
+
+.grid2 {
+grid-column: 2;
+}
+
+.grid3 {
+grid-column: 3;
+}
+
+
+.grid6 {
+grid-column: 3;
+}
+
+
+
+footer a {
+color: #115dd8;
+}
+
+
+footer a:hover {
+background-color:#115dd8;
+color: white;
+padding:2rem;
+}
+
+footer ul{
+background-color: white;
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+
+
+
+
+
+
+
+}
+}
+}
